@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Alterar Palavra-passe - EduControl</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Mesmo CSS do login -->
+    <link rel="stylesheet" href="css/login.css">
+
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <!-- Fundo -->
+    <div class="background-decoration"></div>
+
+    <!-- Card -->
+    <div class="login-card">
+
+        <!-- HEADER -->
+        <div class="card-header">
+
+            <div class="logo-container">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+            </div>
+
+            <h1 class="institution-name">EduControl</h1>
+
+            <h2 class="system-name">Alteração de Palavra-passe</h2>
+
+            <p class="description">
+                Por segurança, defina uma nova palavra-passe para continuar.
+            </p>
+
+        </div>
+
+        <!-- FORM -->
+        <form id="changePasswordForm" class="login-form">
+
+            <!-- Nova senha -->
+            <div class="form-group">
+
+                <label class="form-label">Nova Palavra-passe</label>
+
+                <div class="input-wrapper">
+
+                    <span class="input-icon">
+                        <i class="fas fa-lock"></i>
+                    </span>
+
+                    <input
+                        type="password"
+                        id="newPassword"
+                        class="form-input"
+                        placeholder="Digite a nova palavra-passe"
+                        autocomplete="new-password"
+                        required>
+
+                    <button type="button"
+                            class="toggle-password"
+                            data-target="newPassword">
+                        <i class="fas fa-eye"></i>
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- Confirmar senha -->
+            <div class="form-group">
+
+                <label class="form-label">Confirmar Palavra-passe</label>
+
+                <div class="input-wrapper">
+
+                    <span class="input-icon">
+                        <i class="fas fa-lock"></i>
+                    </span>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        class="form-input"
+                        placeholder="Confirme a nova palavra-passe"
+                        autocomplete="new-password"
+                        required>
+
+                    <button type="button"
+                            class="toggle-password"
+                            data-target="confirmPassword">
+                        <i class="fas fa-eye"></i>
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- BLOCO DE VALIDAÇÃO (INICIA ESCONDIDO) -->
+            <div id="passwordValidation" style="display:none;">
+
+                <!-- Força -->
+                <div class="form-group">
+
+                    <label class="form-label">
+                        Força da Palavra-passe
+                    </label>
+
+                    <div class="password-strength">
+
+                        <div class="strength-bar">
+                            <div class="strength-fill" id="strengthFill"></div>
+                        </div>
+
+                        <span id="strengthText">Fraca</span>
+
+                    </div>
+
+                </div>
+
+                <!-- Regras -->
+                <div class="password-rules">
+
+                    <h4>A palavra-passe deve conter:</h4>
+
+                    <ul>
+
+                        <li id="ruleLength">
+                            <i class="fas fa-times"></i>
+                            Pelo menos 8 caracteres
+                        </li>
+
+                        <li id="ruleUpper">
+                            <i class="fas fa-times"></i>
+                            Uma letra maiúscula
+                        </li>
+
+                        <li id="ruleLower">
+                            <i class="fas fa-times"></i>
+                            Uma letra minúscula
+                        </li>
+
+                        <li id="ruleNumber">
+                            <i class="fas fa-times"></i>
+                            Um número
+                        </li>
+
+                        <li id="ruleSpecial">
+                            <i class="fas fa-times"></i>
+                            Um símbolo (@,#,$,%,...)
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <!-- ALERTA -->
+            <div class="alert alert-error" id="alertBox" style="display:none;">
+                <i class="fas fa-exclamation-circle"></i>
+                <span id="alertMessage"></span>
+            </div>
+
+            <!-- BOTÃO -->
+            <button type="submit"
+                    class="login-button"
+                    id="savePasswordButton">
+
+                <span class="button-text">
+                    Guardar Nova Palavra-passe
+                </span>
+
+                <i class="fas fa-save button-icon"></i>
+
+                <span class="loading-spinner" id="loadingSpinner" style="display:none;">
+                    <i class="fas fa-spinner"></i>
+                </span>
+
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- Theme -->
+    <div class="theme-toggle-container">
+
+        <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i>
+        </button>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>
+        &copy; 2026 Sistema Web de Controlo de Presença de Professores.
+    </p>
+</footer>
+
+<!-- Toast -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- JS -->
+<script src="js/alterar_senha.js"></script>
+
+</body>
+</html>
